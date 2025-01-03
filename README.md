@@ -53,7 +53,7 @@ Follow these steps to view the animation:
 
 Here's a sneak peek of the animation:
 
-![Space Animation Preview](https://via.placeholder.com/800x400?text=Space+Animation+Preview)
+![Space Animation Preview](Preview.mp4)
 
 ---
 
