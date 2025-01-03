@@ -53,7 +53,7 @@ Follow these steps to view the animation:
 
 Here's a sneak peek of the animation:
 
-https://github.com/Dhruvanand24/space/blob/main/Preview.mp4
+![](ezgif-2-7484017860.gif)
 
 ## ⚙️ Customization
 
