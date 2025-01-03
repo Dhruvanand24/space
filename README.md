@@ -53,9 +53,7 @@ Follow these steps to view the animation:
 
 Here's a sneak peek of the animation:
 
-![Space Animation Preview](Preview.mp4)
-
----
+https://github.com/Dhruvanand24/space/blob/main/Preview.mp4
 
 ## ⚙️ Customization
 
