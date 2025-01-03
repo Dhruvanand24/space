@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: black;
+        perspective: 400px;
+        height: 100vh;
+      }
+
+      .space-container {
+        position: relative;
+        height: 100vh;
+        transform-style: preserve-3d;
+        animation: cameraShake 20s ease-in-out infinite;
+      }
+
+      @keyframes cameraShake {
+        0%,
+        100% {
+          transform: rotate3d(0, 0, 1, 0deg) rotate3d(1, 0, 0, 0deg);
+        }
+        25% {
+          transform: rotate3d(0, 0, 1, 1deg) rotate3d(1, 0, 0, 1deg);
+        }
+        50% {
+          transform: rotate3d(0, 0, 1, 0deg) rotate3d(1, 0, 0, -1deg);
+        }
+        75% {
+          transform: rotate3d(0, 0, 1, -1deg) rotate3d(1, 0, 0, 0deg);
+        }
+      }
+
+      .star-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform-style: preserve-3d;
+      }
+
+      .star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 4px 2px rgba(255, 255, 255, 0.8);
+        animation: moveStars 2s linear infinite;
+      }
+
+      @keyframes moveStars {
+        from {
+          transform: translate(-50%, -50%) translateZ(-400px);
+          opacity: 0;
+        }
+        to {
+          transform: translate(-50%, -50%) translateZ(600px);
+          opacity: 0.8;
+        }
+      }
+
+      /* Meteor styling */
+      .meteor {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: white;
+        border-radius: 50%;
+        animation: meteorFall 3s linear infinite;
+        pointer-events: none;
+      }
+
+      .meteor::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100px;
+        height: 2px;
+        background: linear-gradient(to right, white, transparent);
+        transform: translate(-100%, -50%);
+      }
+
+      /* Multiple meteors with different paths */
+      .meteor:nth-child(1) {
+        top: -10%;
+        left: 80%;
+        animation-delay: 0s;
+      }
+
+      .meteor:nth-child(2) {
+        top: -10%;
+        left: 40%;
+        animation-delay: -1s;
+      }
+
+      .meteor:nth-child(3) {
+        top: -10%;
+        left: 20%;
+        animation-delay: -2s;
+      }
+
+      @keyframes meteorFall {
+        from {
+          transform: translate(0, 0) rotate(-45deg);
+          opacity: 1;
+        }
+        to {
+          transform: translate(-500px, 500px) rotate(-45deg);
+          opacity: 0;
+        }
+      }
+
+      /* Star positions and colors (previous code remains the same) */
+      .star:nth-child(1) {
+        left: 10%;
+        top: 20%;
+        animation-delay: -0.5s;
+      }
+      .star:nth-child(2) {
+        left: 20%;
+        top: 30%;
+        animation-delay: -1s;
+      }
+      .star:nth-child(3) {
+        left: 30%;
+        top: 40%;
+        animation-delay: -1.5s;
+      }
+      .star:nth-child(4) {
+        left: 40%;
+        top: 50%;
+        animation-delay: -0.2s;
+      }
+      .star:nth-child(5) {
+        left: 50%;
+        top: 60%;
+        animation-delay: -0.7s;
+      }
+      .star:nth-child(6) {
+        left: 60%;
+        top: 70%;
+        animation-delay: -1.2s;
+      }
+      .star:nth-child(7) {
+        left: 70%;
+        top: 80%;
+        animation-delay: -1.7s;
+      }
+      .star:nth-child(8) {
+        left: 80%;
+        top: 90%;
+        animation-delay: -0.4s;
+      }
+      .star:nth-child(9) {
+        left: 90%;
+        top: 10%;
+        animation-delay: -0.9s;
+      }
+      .star:nth-child(10) {
+        left: 15%;
+        top: 25%;
+        animation-delay: -1.4s;
+      }
+
+      .star:nth-child(5n) {
+        background: #ff8c8c;
+        box-shadow: 0 0 6px 3px rgba(255, 140, 140, 0.8);
+      }
+
+      .star:nth-child(7n) {
+        background: #8cb4ff;
+        box-shadow: 0 0 6px 3px rgba(140, 180, 255, 0.8);
+      }
+
+      .star:nth-child(11n) {
+        background: #ffe88c;
+        box-shadow: 0 0 6px 3px rgba(255, 232, 140, 0.8);
+      }
+
+      .star-layer:nth-child(2) .star {
+        animation-duration: 2.5s;
+      }
+      .star-layer:nth-child(3) .star {
+        animation-duration: 3s;
+      }
+      .star-layer:nth-child(4) .star {
+        animation-duration: 3.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="space-container">
+      <!-- Meteors -->
+      <div class="meteor"></div>
+      <div class="meteor"></div>
+      <div class="meteor"></div>
+
+      <!-- Star layers -->
+      <div class="star-layer">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+      <div class="star-layer">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+      <div class="star-layer">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+      <div class="star-layer">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+      </div>
+    </div>
+  </body>
+</html>
