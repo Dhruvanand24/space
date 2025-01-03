@@ -37,7 +37,7 @@ Follow these steps to view the animation:
 
 1. **Clone or Download the Repository**:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/Dhruvanand24/space.git
    ```
    Or download the ZIP file and extract it.
 
